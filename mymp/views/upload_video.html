@@ -1,0 +1,103 @@
+
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MYMP</title>
+    <!--<link rel="stylesheet" href="upload_video.css">-->
+    <!--<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans' type='text/css'>-->
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/structure.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+
+  </head>
+  <body>
+   <div id="content">
+
+        <div class="topContent">
+          <fieldset class="">
+                <br>
+            <label>Welcome  <%= user.user.username %></label>
+          </fieldset>
+        </div>
+        <div id="menu">
+          <fieldset class="">
+            <ul class="menu">
+              <li><label><a href="/about">
+                           <span>Home</span>
+              <li><label><a href="/user">
+                           <span>Profile</span>
+                         </a></label></li>
+              <li><label><a href="/profile">
+                           <span>Search</span>
+                         </a></label></li>
+              <li><label><a href="/upload_video">
+                           <span>Upload Video</span>
+                         </a></label></li>
+              <li><label><a href="/logout">
+                           <span>Log Out</span>
+                         </a></label></li>
+            </ul>
+          </fieldset>
+        </div>
+</div>
+
+    <span id="signinButton" class="pre-sign-in">
+      <!-- IMPORTANT: Replace the value of the <code>data-clientid</code>
+           attribute in the following tag with your project's client ID. -->
+      <span
+        class="g-signin"
+        data-callback="signinCallback"
+        data-clientid="45053776416-08oq8sl2kigifnfbpa5vrr8rmmbc3lkc.apps.googleusercontent.com"
+        data-cookiepolicy="single_host_origin"
+        data-scope="https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube">
+      </span>
+    </span>
+
+    <div class="post-sign-in">
+      <div>
+        <img id="channel-thumbnail">
+        <span id="channel-name"></span>
+      </div>
+
+      <div>
+        <label for="title">Title:</label>
+        <input id="title" type="text" value="Default Title">
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description">Default description</textarea>
+      </div>
+      <div>
+        <label for="privacy-status">Privacy Status:</label>
+        <select id="privacy-status">
+          <option>public</option>
+          <option>unlisted</option>
+          <option>private</option>
+        </select>
+      </div>
+
+      <div>
+        <input input type="file" id="file" class="button" accept="video/*">
+        <button id="button">Upload Video</button>
+      <div class="during-upload">
+        <p><span id="percent-transferred"></span>% done (<span id="bytes-transferred"></span>/<span id="total-bytes"></span> bytes)</p>
+        <progress id="upload-progress" max="1" value="0"></progress>
+      </div>
+
+      <div class="post-upload">
+        <p>Uploaded video with id <span id="video-id"></span>. Polling for status...</p>
+        <ul id="post-upload-status"></ul>
+        <div id="player"></div>
+      </div>
+      <p id="disclaimer">By uploading a video, you certify that you own all rights to the content or that you are authorized by the owner to make the content publicly available on YouTube, and that it otherwise complies with the YouTube Terms of Service located at <a href="http://www.youtube.com/t/terms" target="_blank">http://www.youtube.com/t/terms</a></p>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apis.google.com/js/client:plusone.js"></script>
+    <script src="/js/cors_upload.js"></script>
+    <script src="/js/upload_video.js"></script>
+  </body>
+</html>
+
